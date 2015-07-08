@@ -1,80 +1,80 @@
 
 
-body {	
-	font-family: "Trebuchet MS", "Helvetica", "Arial",  "Verdana", "sans-serif";
+body {  
+    font-family: "Trebuchet MS", "Helvetica", "Arial",  "Verdana", "sans-serif";
 }
 
 #fit {
-	width: 100%;
-	text-align: center;
-	font-size: 150%;
-	background-color: #660066;
-	color: white;
-	margin-bottom: 10px;	
-	font-weight: bold;
+    width: 100%;
+    text-align: center;
+    font-size: 150%;
+    background-color: #660066;
+    color: white;
+    margin-bottom: 10px;    
+    font-weight: bold;
 }
 
 .equip {
-	font-weight: bold;
-	font-size: 110%;
-	color: #005C7A;
+    font-weight: bold;
+    font-size: 110%;
+    color: #005C7A;
 
-	/*margin-bottom: 0px;*/
+    /*margin-bottom: 0px;*/
 }
-
+    
 .units {
 
-	font-size: 90%;
-	color: #7AAABA;
-	/*margin-bottom: 0px;*/
+    font-size: 90%;
+    color: #7AAABA;
+    /*margin-bottom: 0px;*/
 }
 
 .exercise {
 
-	border: 1px solid LightBlue;
-	font-size: 110%;
-	width: 60%;
-	margin: 0 auto;
-	color: #0099CC;
-	margin-bottom: 10px;
+    border: 1px solid LightBlue;
+    font-size: 110%;
+    width: 60%;
+    margin: 0 auto;
+    color: #0099CC;
+    margin-bottom: 10px;
 }
 
 #start {
-	background-color: green;
-	border: 1px solid green;
+    background-color: green;
+    border: 1px solid green;
     border-radius: 20px;
 
-	width: 130px;
-	text-align: center;
-	color: white;
-	font-weight: bold;
-	margin-top: 10px;
-	margin-bottom: 20px;
+    width: 130px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 20px;
 
 }
 
 
 #submit {
-	background-color: #307B93;
-	border: 1px solid #307B93;
+    background-color: #307B93;
+    border: 1px solid #307B93;
     border-radius: 20px;
-	width: 50%;
-/*	margin: 0 auto;*/
-	text-align: center;
-	color: white;
-	font-size: 150%;
-	font-weight: bold;
-	margin-top: 20px;
+    width: 50%;
+/*  margin: 0 auto;*/
+    text-align: center;
+    color: white;
+    font-size: 150%;
+    font-weight: bold;
+    margin-top: 20px;
 
 }
 
 #submit:hover {
-	cursor: pointer;
+    cursor: pointer;
 }
 
 #summary {
-	width: 130px;
-	background-color: #AAEEFF;
+    width: 130px;
+    background-color: #AAEEFF;
 }
 
 
