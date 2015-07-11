@@ -18,15 +18,11 @@ body {
     font-weight: bold;
     font-size: 110%;
     color: #005C7A;
-
-    /*margin-bottom: 0px;*/
 }
     
 .units {
-
     font-size: 90%;
     color: #7AAABA;
-    /*margin-bottom: 0px;*/
 }
 
 .exercise {
@@ -53,19 +49,16 @@ body {
 
 }
 
-
 #submit {
     background-color: #307B93;
     border: 1px solid #307B93;
     border-radius: 20px;
     width: 50%;
-/*  margin: 0 auto;*/
     text-align: center;
     color: white;
     font-size: 150%;
     font-weight: bold;
     margin-top: 20px;
-
 }
 
 #submit:hover {
