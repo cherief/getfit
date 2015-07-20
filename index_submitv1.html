@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> 
+
+<html>
+<head>
+
+<title>Fit v1.0</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<LINK href="style.css" rel="stylesheet" type="text/css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="jquery-ui.css">
+
+
+</head>
+
+<body>
+
+	<div>
+
+	<div id="fit">Fit v1.0</div>
+
+
+	<div>
+		<span class="equip">Treadmill</span>
+		<span class="units">10 mins</span>
+	</div>
+
+	<input type="number" class="exercise" id="treadmill" placeholder="kilometres">
+
+	<div>
+		<span class="equip">Rower</span>
+		<span class="units">10 mins</span>
+	</div>
+
+	<input type="number" class="exercise" id="rower" placeholder="metres">
+
+
+
+
+	<div id="submit">Submit</div>
+
+	<h2>Summary</h2>
+	<div id="success">Ready to submit.</div>
+
+</div>
+
+</body>
+
+
+</html>
+
+
+<script>
+
+$("#submit").click(function() {  
+
+	// Get input data from user
+	var treadmill = $("#treadmill").val();
+	var rower = $("#rower").val();
+
+	if (treadmill == "") {
+		treadmill = "0";
+	}
+	if (rower == "") {
+		rower = "0";
+	}
+	
+	// Get current date and reformat
+	var start = new Date();		// Get current date
+	var s_day;
+	var s_month;
+	var s_year;
+
+	if ((start.getDate().toString().length) == 1) {  // Get date
+		s_day = '0' + start.getDate();
+	} else {
+		s_day = start.getDate();
+	}
+
+	if (((start.getMonth()+1).toString().length) == 1) {  // Get month (need to +1)
+		s_month = '0' + (start.getMonth()+1);
+	} else {
+		s_month = start.getMonth()+1;
+	}
+
+	s_year = start.getFullYear();  // Get year
+
+	// Output data to append (uses .post)
+	var date = s_year + s_month + s_day; 
+	var tosave = "date=" + date + "&treadmill=" + treadmill + "&rower=" + rower;
+
+  	
+$.post('save_json_v1.php', tosave, function() { 
+	});
+	
+});
+
+</script>
+
+
+
