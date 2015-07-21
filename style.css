@@ -66,11 +66,21 @@ body {
 }
 
 #summary {
-    width: 130px;
-    background-color: #AAEEFF;
+    width: 100%;
+    background-color: #307B93;
+    font-size: 170%;
+    text-align: center;
+    color: white;
 }
 
-
+#summ_equip {
+    width: 100%;
+    background-color: white;
+    font-size: 140%;
+    text-align: center;
+    color: #005E7A;
+    margin-top: 10px;
+}
 
 
 

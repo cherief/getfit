@@ -1,60 +1,48 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> 
 
 <html>
-<head>
+	<head>
 
-<title>Fit v1.0</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Fit v1.0</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="style.css" rel="stylesheet" type="text/css">
 
-<LINK href="style.css" rel="stylesheet" type="text/css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+		<link rel="stylesheet" href="jquery-ui.css">
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-<link rel="stylesheet" href="jquery-ui.css">
+	</head>
 
+	<body>
 
-</head>
+		<div>
 
-<body>
-
-	<div>
-
-	<div id="fit">Fit v1.0</div>
+		<div id="fit">Fit v1.0</div>
 
 
-	<div>
-		<span class="equip">Treadmill</span>
-		<span class="units">10 mins</span>
+		<div>
+			<span class="equip">Treadmill</span>
+			<span class="units">10 mins</span>
+		</div>
+
+		<input type="number" class="exercise" id="treadmill" placeholder="kilometres">
+
+		<div>
+			<span class="equip">Rower</span>
+			<span class="units">10 mins</span>
+		</div>
+
+		<input type="number" class="exercise" id="rower" placeholder="metres">
+
+		<div id="submit">Submit</div>
+
 	</div>
 
-	<input type="number" class="exercise" id="treadmill" placeholder="kilometres">
-
-	<div>
-		<span class="equip">Rower</span>
-		<span class="units">10 mins</span>
-	</div>
-
-	<input type="number" class="exercise" id="rower" placeholder="metres">
-
-
-
-
-	<div id="submit">Submit</div>
-
-	<h2>Summary</h2>
-	<div id="#success">Ready to submit.</div>
-
-</div>
-
-</body>
-
+	</body>
 
 </html>
 
-
 <script>
-
-
 
 $("#submit").click(function() {  
 	var treadmill = $("#treadmill").val();
@@ -67,49 +55,34 @@ $("#submit").click(function() {
 		rower = "0";
 	}
 
-	var start = new Date();
-	
-	// s_minutes = start.getMinutes();
-	// s_hours = start.getHours();
-	s_day = ((start.getDay().length+1) === 1)? (start.getDay()+1) : '0' + (start.getDay()+1); 
-	s_month = ((start.getMonth().length+1) === 1)? (start.getMonth()+1) : '0' + (start.getMonth()+1); 
-	s_year = start.getYear();
+	// Get current date and reformat (ie. two digits for date and month)
+	var start = new Date();		// Get current time
+	var s_day, s_month, s_year;
 
-	time = s_year + " " + s_month + " " + s_day; // + " " + s_hours + ":" + s_minutes;
-	
+	if ((start.getDate().toString().length) == 1) {  // Get date
+		s_day = '0' + start.getDate();
+	} else {
+		s_day = start.getDate();
+	}
 
+	if (((start.getMonth()+1).toString().length) == 1) {  // Get month (need to +1)
+		s_month = '0' + (start.getMonth()+1);
+	} else {
+		s_month = start.getMonth()+1;
+	}
 
-	var date;
+	s_year = start.getFullYear();  // Get year
+
+	// Output data to append (uses .post)
+	var date = s_year + s_month + s_day; 
 
 	$.getJSON("fitv1.json", function(json) {  
 		date = json.fit[1].rower;
 		$("#summary").text(date + " | " + treadmill + "km.");
 		
 	});
-
-	var newdata = ["date1","tread1","row1"]
-
-	date = "20150711"
 	
-	// window.location.href = "save_json.php?date=" + date + "&treadmill=" + "34" + "&rower=" + "343";
-
-	var tosave = "date=" + date + "&treadmill=" + "34" + "&rower=" + "550";
-	// var serial = tosave.serialize();
-
-
-
-
-	// $.ajax({
- //        url: "save_json.php",
- //        type: "post",
- //        data: serial
- //    });
-	
-  	
-$.post('save_json.php', tosave, function() { 
-	});
-	
-	
+	window.location.href = "save_json_v2.php?date=" + date + "&treadmill=" + treadmill + "&rower=" + rower;
 
 });
 
